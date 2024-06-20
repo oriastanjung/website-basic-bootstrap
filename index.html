@@ -16,12 +16,13 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
       * {
         font-family: "DM Sans", sans-serif;
       }
       .carousel-item {
-        height: 60vh; /* Adjust the height as needed */
+        height: 90vh; /* Adjust the height as needed */
       }
       .carousel-item img {
         height: 100%;
@@ -51,10 +52,15 @@
         z-index: 1;
       }
     </style>
+    
   </head>
   <body>
     <header class="fixed-top z-3">
-      <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+      <nav
+        style="--bs-bg-opacity: 0.7"
+        class="navbar navbar-expand-lg bg-light"
+        data-bs-theme="light"
+      >
         <div class="container">
           <a class="navbar-brand fs-1 fw-bold" href="#">Travori</a>
           <button
@@ -80,7 +86,13 @@
                 <a class="nav-link" href="#">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <button
+                  class="nav-link"
+                  data-bs-toggle="modal"
+                  data-bs-target="#formModalContact"
+                >
+                  Contact
+                </button>
               </li>
               <li class="nav-item dropdown ms-md-1">
                 <a
@@ -92,7 +104,7 @@
                 >
                   Join Us
                 </a>
-                <ul class="dropdown-menu bg-primary">
+                <ul  class="dropdown-menu bg-light">
                   <li><a class="dropdown-item" href="#">Sign In</a></li>
                   <li><a class="dropdown-item" href="#">Sign Up</a></li>
                   <li><hr class="dropdown-divider" /></li>
@@ -106,7 +118,7 @@
         </div>
       </nav>
     </header>
-    <main class="mt-5 mb-5">
+    <main class=" mb-5">
       <section
         id="carouselExampleCaptions"
         class="carousel slide"
@@ -142,7 +154,7 @@
               alt="..."
             />
             <div class="carousel-caption d-block">
-              <h5 class="fs-1 fw-semibold">First slide label</h5>
+              <h5 class="fs-1 fw-semibold">Find Happyness</h5>
               <p>
                 Some representative placeholder content for the first slide.
               </p>
@@ -340,10 +352,125 @@
           </div>
         </div>
       </section>
+      <!-- modal contact -->
+      <div
+        class="modal fade"
+        id="formModalContact"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <form id="form-contactUs" action="" method="post" class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Contact Us
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div>
+                <div class="form-group mb-3">
+                  <label class="form-label text-dark fw-semibold" for="fullname"
+                    >Fullname :</label
+                  >
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="fullname"
+                    id="fullname"
+                    aria-describedby="fullnameCheck"
+                    required
+                    placeholder="John Doe"
+                  />
+                  <div class="form-text text-danger" id="fullnameCheck">
+                    **Username cannot be empty!
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <label class="form-label text-dark fw-semibold" for="fullname"
+                    >Email :</label
+                  >
+                  <input
+                    class="form-control"
+                    type="email"
+                    name="email"
+                    id="email"
+                    aria-describedby="emailCheck"
+                    required
+                    placeholder="example@gmail.com"
+                  />
+                  <div class="form-text text-danger invalid-feedback" id="emailCheck">
+                    **Email cannot be empty!
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <label class="form-label text-dark fw-semibold" for="fullname"
+                    >Password :</label
+                  >
+                  <input
+                    class="form-control"
+                    type="password"
+                    name="password"
+                    id="password"
+                    aria-describedby="passwordCheck"
+                    required
+                    placeholder="**********"
+                  />
+                  <div class="form-text text-danger invalid-feedback" id="passwordCheck">
+                    **Password must have 8 chars with 1 capital, 1 lower, 1 symbol, 1 number!
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <label class="form-label text-dark fw-semibold" for="fullname"
+                    >Phone Number :</label
+                  >
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    aria-describedby="phoneCheck"
+                    required
+                    placeholder="+628**********"
+                  />
+                  <div class="form-text text-danger" id="phoneCheck">
+                    **Phone cannot be empty!
+                  </div>
+                </div>
+                <div class="form-floating">
+                  <textarea
+                    required
+                    class="form-control"
+                    placeholder="Send us your messages!"
+                    id="floatingTextarea"
+                  ></textarea>
+                  <label for="floatingTextarea">Messages :</label>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button id="contactUsBTN" type="submit" class="btn btn-primary">Send Now!</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </main>
     <footer class="bg-primary text-white text-center py-3">
-        &copy; 2024 Travori. All rights reserved.
-      </footer>
+      &copy; 2024 Travori. All rights reserved.
+    </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -354,5 +481,6 @@
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
       crossorigin="anonymous"
     ></script>
+    <script src="./script.js"></script>
   </body>
 </html>
