@@ -98,11 +98,9 @@ $(document).ready(function () {
     passwordError = validatePassword();
     phoneError = validatePhoneNumber();
     if (fullnameError && emailError && passwordError && phoneError) {
-      return true;
+      alert("Fill All The Form Required!")
     } else {
-      const currentPath = window.location.pathname;
-      console.log("Current Path: " + currentPath);
-      window.location.href = currentPath+"/form-success";
+      window.location.href ="/form-success";
     }
   });
 });
